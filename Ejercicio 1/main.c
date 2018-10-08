@@ -20,7 +20,6 @@ int main()
     do
     {
         opcion = menuPrincipal();
-        system("pause");
         system("cls");
         switch(opcion)
         {
@@ -29,12 +28,12 @@ int main()
                 if(contarAltas_eDirector(listaDirectores, MAX_DIRECTORES) > 0)
                 {
                     printf("\n");
-                    alta_ePelicula(listaPeliculas, MAX_PELICULAS, listaDirectores, MAX_DIRECTORES);
+                    menuAltaPelicula(listaPeliculas, MAX_PELICULAS, listaDirectores, MAX_DIRECTORES);
                 }else
                 {
                     printf("\nNo se ha ingresado ningun director todavia.\n");
                 }
-                printf("\n");
+                system("\n");
                 system("pause");
                 system("cls");
                 break;
@@ -47,7 +46,7 @@ int main()
                 {
                     printf("\nNo se ha ingresado una pelicula todavia.\n");
                 }
-                printf("\n");
+                system("\n");
                 system("pause");
                 system("cls");
                 break;
@@ -60,7 +59,7 @@ int main()
                 {
                     printf("\nNo se ha ingresado una pelicula todavia.\n");
                 }
-                printf("\n");
+                system("\n");
                 system("pause");
                 system("cls");
                 break;
@@ -68,7 +67,7 @@ int main()
                 printf("Alta de director\n");
                 printf("\n");
                 alta_eDirector(listaDirectores, MAX_DIRECTORES);
-                printf("\n");
+                system("\n");
                 system("pause");
                 system("cls");
                 break;
@@ -81,7 +80,7 @@ int main()
                 {
                     printf("\nNo se ha ingresado ningun director todavia.\n");
                 }
-                printf("\n");
+                system("\n");
                 system("pause");
                 system("cls");
                 break;
@@ -94,7 +93,7 @@ int main()
                 {
                     printf("\nNo se agrego ningun director todavia.\n");
                 }
-                printf("\n");
+                system("\n");
                 system("pause");
                 system("cls");
                 break;

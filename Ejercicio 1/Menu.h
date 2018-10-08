@@ -22,6 +22,8 @@ void mostrarMenuListar(void);
  */
 int menuPrincipal(void);
 
+void menuAltaPelicula(ePelicula listadoPeliculas[], int cantidadPeliculas, eDirector listadoDirectores[], int cantidadDirectores);
+
 /** \brief Solicita un id al usuario para dar de baja una pelicula.
  *
  * \param listadoPeliculas[] ePelicula
@@ -54,6 +56,8 @@ void menuModificarPelicula(ePelicula listadoPeliculas[], int cantidadPeliculas, 
  *
  */
 void menuBajaDirector(eDirector listadoDirectores[], int cantidadDirectores, ePelicula listadoPeliculas[], int cantidadPeliculas);
+
+void menuDirectorConCantidad(ePelicula listadoPeliculas[], int cantidadPeliculas, eDirector listadoDirectores[], int cantidadDirectores);
 
 /** \brief Solicita al usuario una opcion para mostrar datos en pantalla segun indique.
  *

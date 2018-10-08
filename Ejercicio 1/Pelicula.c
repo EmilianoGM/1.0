@@ -15,6 +15,11 @@ void mostrar_ePelicula(ePelicula pelicula)
     pelicula.director, pelicula.identificador);
 }
 
+void mostrarSinDirector_ePelicula(ePelicula pelicula)
+{
+     printf("%20s | %4d | %20s | ", pelicula.titulo, pelicula.anio, pelicula.nacionalidad);
+}
+
 void agregarValoresDePrueba(ePelicula listadoPeliculas[], eDirector listadoDirectores[])
 {
     char nombresDirector[3][TAM_NOMBRE_DIRECTOR] = {"Juan Perez", "Ana Lopez", "Pedro Medina"};
@@ -65,8 +70,9 @@ int iniciar_ePelicula(ePelicula listado[], int cantidad, int ilogico)
     return retorno;
 }
 
-int alta_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores)
+int alta_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores, char nombreDirector[])
 {
+    int retorno = -1;
     int indice;
     int indiceDirector;
     char nombreAuxiliar[TAM_NOMBRE_DIRECTOR];
@@ -75,16 +81,9 @@ int alta_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectore
         indice = buscarLibre_ePelicula(listado, cantidad, LIBRE);
         if(indice > -1)
         {
-            pedirArrayAlfanumericaConEspacio(listado[indice].titulo, TAM_TITULO_PELICULA, "Introduzca el titulo de la pelicula:\n",
-            "Error titulo invalido. Introduzca el titulo nuevamente:\n");
-            pedirArrayLetrasConEspacio(nombreAuxiliar, TAM_NOMBRE_DIRECTOR, "Introduzca el nombre del director:\n",
-            "Error nombre invalido. Introduzca el nombre nuevamente:\n");
-            capitalizarArrayLetras(nombreAuxiliar);
-            indiceDirector = buscarNombre_eDirector(listadoDirectores, cantidadDirectores, nombreAuxiliar);
-            if(indiceDirector > -1)
-            {
-                printf("\n");
-                strcpy(listado[indice].director, listadoDirectores[indiceDirector].nombre);
+                strcpy(listado[indice].director, nombreDirector);
+                pedirArrayAlfanumericaConEspacio(listado[indice].titulo, TAM_TITULO_PELICULA, "Introduzca el titulo de la pelicula:\n",
+                "Error titulo invalido. Introduzca el titulo nuevamente:\n");
                 listado[indice].anio = pedirEntero("Introduzca anio: \n", "Error anio invalido. Introduzca el anio nuevamente:\n",
                 1900, ANIO_ACTUAL);
                 pedirArrayLetrasConEspacio(listado[indice].nacionalidad, TAM_NACIONALIDAD_PELICULA, "Introduzca el pais:\n",
@@ -92,17 +91,13 @@ int alta_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectore
                 listado[indice].identificador = generarId_ePelicula(listado, cantidad);
                 listado[indice].estado = OCUPADO;
                 printf("\nPelicula agregada.\n");
-            }else
-            {
-                printf("\nEse director aun no ha sido registrado.\n");
-            }
+                retorno = 0;
         } else
         {
             printf("Lista de peliculas llena.");
         }
-        return 0;
     }
-    return -1;
+    return retorno;
 }
 
 int baja_ePelicula(ePelicula listado[], int cantidad, int indice)
@@ -303,4 +298,163 @@ int buscarPorId_ePelicula(ePelicula listado[], int cantidad, int id)
         }
     }
     return retorno;
+}
+
+int mostrarListadoConPaisDeOrigen_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores)
+{
+    int indice;
+    int indiceDirector;
+    if(listado != NULL && cantidad > 0)
+    {
+        printf("%20s | %4s | %20s | %20s | %4s | %20s\n", "Titulo", "Anio", "Nacionalidad", "Director",
+        "ID", "Pais de origen");
+        for(indice = 0; indice < cantidad; indice ++)
+        {
+            if(listado[indice].estado == OCUPADO)
+            {
+                for(indiceDirector = 0; indiceDirector < cantidadDirectores; indiceDirector++)
+                {
+                    if(strcmp(listado[indice].director, listadoDirectores[indiceDirector].nombre) == 0)
+                    {
+                        mostrar_ePelicula(listado[indice]);
+                        printf(" | %20s\n", listadoDirectores[indiceDirector].paisDeOrigen);
+                        break;
+                    }
+                }
+            }
+        }
+        return 0;
+    }
+    return -1;
+}
+
+int mostrarPeliculasMasAntiguas_ePelicula(ePelicula listado[], int cantidad)
+{
+    int indice;
+    int indiceDos = 0;
+    int cantidadDeAltas;
+    if(listado != NULL && cantidad > 0)
+    {
+        cantidadDeAltas = contarAltas_ePelicula(listado, cantidad);
+        int aniosPeliculas[cantidadDeAltas];
+        for(indice = 0; indice < cantidad; indice ++)
+        {
+            if(listado[indice].estado == OCUPADO)
+            {
+                aniosPeliculas[indiceDos] = listado[indice].anio;
+                indiceDos++;
+            }
+        }
+        ordenarArrayNumerica(aniosPeliculas, cantidadDeAltas);
+        printf("%20s | %4s | %20s | %20s | %4s\n", "Titulo", "Anio", "Nacionalidad", "Director", "ID");
+        for(indice = 0;  indice < cantidad; indice ++)
+        {
+            if(listado[indice].estado == OCUPADO && listado[indice].anio == aniosPeliculas[cantidadDeAltas - 1])
+            {
+                mostrar_ePelicula(listado[indice]);
+                printf("\n");
+            }
+        }
+        return 0;
+    }
+    return -1;
+}
+
+int mostrarPeliculasPorDirector_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores)
+{
+    int indice;
+    int indiceDos;
+    int bandera = 0;
+    if(listado != NULL && cantidad > 0 && listadoDirectores != NULL && cantidadDirectores)
+    {
+        printf("Director\n");
+        printf("%20s | %19s | %20s\n", "Nombre", "Fecha de nacimiento", "Pais de origen");
+        for(indice = 0; indice < cantidadDirectores; indice++)
+        {
+            if(listadoDirectores[indice].estado == OCUPADO)
+            {
+                mostrar_eDirector(listadoDirectores[indice]);
+                printf("\n");
+                printf("Peliculas\n");
+                printf("%20s | %4s | %20s | %20s | %4s\n", "Titulo", "Anio", "Nacionalidad", "Director", "ID");
+                for(indiceDos = 0; indiceDos < cantidad; indiceDos++)
+                {
+                    if(listado[indiceDos].estado == OCUPADO)
+                    {
+                        if(strcmp(listado[indiceDos].director, listadoDirectores[indice].nombre) == 0)
+                        {
+                            mostrar_ePelicula(listado[indiceDos]);
+                            printf("\n");
+                            bandera = 1;
+                        }
+                    }
+                }
+                if(bandera == 0)
+                {
+                    printf("Este director no tiene peliculas agregadas\n");
+                }
+                printf("\n");
+            }
+        }
+        return 0;
+    }
+    return -1;
+}
+
+int calcularCantidadPeliculasPorDirector_ePelicula(ePelicula listado[], int cantidad, char nombreDirector[])
+{
+    int indice;
+    int contadorPeliculas = 0;
+    if(listado != NULL && cantidad > 0)
+    {
+        for(indice = 0; indice < cantidad; indice++)
+        {
+            if(listado[indice].estado == OCUPADO)
+            {
+                if(strcmp(listado[indice].director, nombreDirector) == 0)
+                {
+                    contadorPeliculas++;
+                }
+            }
+        }
+        return contadorPeliculas;
+    }
+    return -1;
+}
+
+int mostrarDirectorConMasPeliculas_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores)
+{
+    int indice;
+    int indiceDos = 0;
+    int altasDirector;
+    if(listado != NULL && cantidad > 0 && listadoDirectores != NULL && cantidadDirectores)
+    {
+        altasDirector = contarAltas_eDirector(listadoDirectores, cantidadDirectores);
+        int cantidadPorDirector[altasDirector];
+        for(indice = 0; indice < cantidadDirectores; indice++)
+        {
+            if(listadoDirectores[indice].estado == OCUPADO)
+            {
+                cantidadPorDirector[indiceDos] = calcularCantidadPeliculasPorDirector_ePelicula(listado, cantidad, listadoDirectores[indice].nombre);
+                indiceDos++;
+            }
+        }
+        ordenarArrayNumerica(cantidadPorDirector, altasDirector);
+        printf("Cantidad de peliculas por director = %d\n", cantidadPorDirector[altasDirector - 1]);
+        printf("%20s | %19s | %20s\n", "Nombre", "Fecha de nacimiento", "Pais de origen");
+        for(indice = 0;  indice < cantidad; indice ++)
+        {
+            if(listadoDirectores[indice].estado == OCUPADO)
+            {
+                if(calcularCantidadPeliculasPorDirector_ePelicula(listado, cantidad,
+                listadoDirectores[indice].nombre) == cantidadPorDirector[altasDirector - 1])
+                {
+                    mostrar_eDirector(listadoDirectores[indice]);
+                    printf("\n");
+                }
+            }
+        }
+        return 0;
+    }
+    return -1;
 }

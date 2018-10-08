@@ -6,7 +6,6 @@
 #include "Biblioteca.h"
 #include "Fecha.h"
 #include "Director.h"
-//#include "Pelicula.h"
 
 void mostrar_eDirector(eDirector director)
 {

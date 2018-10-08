@@ -20,6 +20,8 @@ typedef struct
  */
 void mostrar_ePelicula(ePelicula pelicula);
 
+void mostrarSinDirector_ePelicula(ePelicula pelicula);
+
 void agregarValoresDePrueba(ePelicula listadoPeliculas[], eDirector listadoDirectores[]);
 
 /** \brief Pone la bandera estado en el valor ilogico para indicar que todos los elementos del array estan libres.
@@ -43,7 +45,7 @@ int iniciar_ePelicula(ePelicula listado[], int cantidad, int ilogico);
  * o que el nombre del director no haya sido ingresado previamente.
  *
  */
-int alta_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores);
+int alta_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores, char nombreDirector[]);
 
 /** \brief Da de baja un elemento pelicula, mostrandolo y preguntando al usuario si quiere eliminarlo, poniendo su estado en libre.
  *
@@ -130,3 +132,13 @@ int contarAltas_ePelicula(ePelicula listado[], int cantidad);
  *
  */
 int buscarPorId_ePelicula(ePelicula listado[], int cantidad, int id);
+
+int mostrarListadoConPaisDeOrigen_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores);
+
+int mostrarPeliculasMasAntiguas_ePelicula(ePelicula listado[], int cantidad);
+
+int mostrarPeliculasPorDirector_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores);
+
+int calcularCantidadPeliculasPorDirector_ePelicula(ePelicula listado[], int cantidad, char nombreDirector[]);
+
+int mostrarDirectorConMasPeliculas_ePelicula(ePelicula listado[], int cantidad, eDirector listadoDirectores[], int cantidadDirectores);

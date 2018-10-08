@@ -69,3 +69,73 @@
 	"Pelicula.h"
 	"Menu.h"
 
+1539009526 source:c:\users\alumno\desktop\parcial\ejercicio 1\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+
+1539009526 c:\users\alumno\desktop\parcial\ejercicio 1\biblioteca.h
+
+1539019705 source:c:\users\alumno\desktop\parcial\ejercicio 1\director.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Fecha.h"
+	"Director.h"
+
+1539009526 c:\users\alumno\desktop\parcial\ejercicio 1\fecha.h
+
+1539009526 c:\users\alumno\desktop\parcial\ejercicio 1\director.h
+
+1539009526 source:c:\users\alumno\desktop\parcial\ejercicio 1\fecha.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+	"Fecha.h"
+
+1539019258 source:c:\users\alumno\desktop\parcial\ejercicio 1\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Fecha.h"
+	"Director.h"
+	"Pelicula.h"
+	"Menu.h"
+
+1539018563 c:\users\alumno\desktop\parcial\ejercicio 1\pelicula.h
+
+1539018087 c:\users\alumno\desktop\parcial\ejercicio 1\menu.h
+
+1539019728 source:c:\users\alumno\desktop\parcial\ejercicio 1\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Fecha.h"
+	"Director.h"
+	"Pelicula.h"
+	"Menu.h"
+
+1539018529 source:c:\users\alumno\desktop\parcial\ejercicio 1\pelicula.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Fecha.h"
+	"Director.h"
+	"Pelicula.h"
+	"Menu.h"
+
