@@ -1,0 +1,71 @@
+# depslib dependency file v1.0
+1538926182 source:c:\users\liliana\desktop\tecnicatura\parcial laboratorio\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+
+1538965155 c:\users\liliana\desktop\tecnicatura\parcial laboratorio\biblioteca.h
+
+1538795540 source:c:\users\liliana\desktop\tecnicatura\parcial laboratorio\fecha.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+	"Fecha.h"
+
+1538785603 c:\users\liliana\desktop\tecnicatura\parcial laboratorio\fecha.h
+
+1538950384 source:c:\users\liliana\desktop\tecnicatura\parcial laboratorio\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Fecha.h"
+	"Director.h"
+	"Pelicula.h"
+	"Menu.h"
+
+1538965155 source:c:\users\liliana\desktop\tecnicatura\parcial laboratorio\director.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Fecha.h"
+	"Director.h"
+
+1538968025 c:\users\liliana\desktop\tecnicatura\parcial laboratorio\director.h
+
+1538965155 source:c:\users\liliana\desktop\tecnicatura\parcial laboratorio\menu.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Fecha.h"
+	"Director.h"
+	"Pelicula.h"
+	"Menu.h"
+
+1538965155 c:\users\liliana\desktop\tecnicatura\parcial laboratorio\menu.h
+
+1538968025 c:\users\liliana\desktop\tecnicatura\parcial laboratorio\pelicula.h
+
+1538965155 source:c:\users\liliana\desktop\tecnicatura\parcial laboratorio\pelicula.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Fecha.h"
+	"Director.h"
+	"Pelicula.h"
+	"Menu.h"
+
