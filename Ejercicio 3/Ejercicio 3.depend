@@ -1,0 +1,63 @@
+# depslib dependency file v1.0
+1543073699 source:c:\users\liliana\desktop\tecnicatura\ejercicio 3\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+
+1543073699 c:\users\liliana\desktop\tecnicatura\ejercicio 3\biblioteca.h
+
+1543082667 source:c:\users\liliana\desktop\tecnicatura\ejercicio 3\controller.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+	"LinkedList.h"
+	"Employee.h"
+	"parser.h"
+	"Menu.h"
+
+1543076316 c:\users\liliana\desktop\tecnicatura\ejercicio 3\linkedlist.h
+
+1543082140 c:\users\liliana\desktop\tecnicatura\ejercicio 3\employee.h
+
+1543073699 c:\users\liliana\desktop\tecnicatura\ejercicio 3\parser.h
+
+1543082140 c:\users\liliana\desktop\tecnicatura\ejercicio 3\menu.h
+
+1543083416 source:c:\users\liliana\desktop\tecnicatura\ejercicio 3\employee.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"Employee.h"
+
+1543076760 source:c:\users\liliana\desktop\tecnicatura\ejercicio 3\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1543082667 source:c:\users\liliana\desktop\tecnicatura\ejercicio 3\main.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"Menu.h"
+
+1543082735 c:\users\liliana\desktop\tecnicatura\ejercicio 3\controller.h
+
+1543163322 source:c:\users\liliana\desktop\tecnicatura\ejercicio 3\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+
+1543108363 source:c:\users\liliana\desktop\tecnicatura\ejercicio 3\parser.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"LinkedList.h"
+	"Employee.h"
+	"Biblioteca.h"
+
