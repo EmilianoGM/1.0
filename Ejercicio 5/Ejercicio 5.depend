@@ -1,0 +1,57 @@
+# depslib dependency file v1.0
+1543184910 source:c:\users\liliana\desktop\tecnicatura\ejercicio 5\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+
+1543184910 c:\users\liliana\desktop\tecnicatura\ejercicio 5\biblioteca.h
+
+1543198357 source:c:\users\liliana\desktop\tecnicatura\ejercicio 5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Estructura.h"
+	"Menu.h"
+	"LinkedList.h"
+	"Controlador.h"
+
+1543195312 source:c:\users\liliana\desktop\tecnicatura\ejercicio 5\estructura.c
+	<stdlib.h>
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	"Estructura.h"
+
+1543188371 c:\users\liliana\desktop\tecnicatura\ejercicio 5\estructura.h
+
+1543185127 source:c:\users\liliana\desktop\tecnicatura\ejercicio 5\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1543185127 c:\users\liliana\desktop\tecnicatura\ejercicio 5\linkedlist.h
+
+1543198358 source:c:\users\liliana\desktop\tecnicatura\ejercicio 5\controlador.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Estructura.h"
+	"Menu.h"
+	"LinkedList.h"
+	"Controlador.h"
+
+1543200308 c:\users\liliana\desktop\tecnicatura\ejercicio 5\menu.h
+
+1543200308 source:c:\users\liliana\desktop\tecnicatura\ejercicio 5\menu.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+
+1543200309 c:\users\liliana\desktop\tecnicatura\ejercicio 5\controlador.h
+
