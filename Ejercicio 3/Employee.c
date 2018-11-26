@@ -348,24 +348,6 @@ int employe_filterNombre(void* this)
     return retorno;
 }
 
-int employee_filterSueldo(void* this)
-{
-    int retorno = -1;
-    Employee* pEmployee = NULL;
-    if(this != NULL)
-    {
-        pEmployee = (Employee *)this;
-        if(pEmployee->sueldo >= 10000)
-        {
-            retorno = 1;
-        }else
-        {
-            retorno = 0;
-        }
-    }
-    return retorno;
-}
-
 int employee_filterHorasTrabajadas(void* this)
 {
     int retorno = -1;

@@ -1,12 +1,13 @@
 #define MAX_NOMBRE 128
-
+#define MAX_DIRECCION 128
 typedef struct
 {
     int id;
     char nombre[MAX_NOMBRE];
-    int entero;
-    float flotante;
-}Generica;
+    char direccion[MAX_DIRECCION];
+    int horasTrabajadas;
+    int sueldo;
+}eEmpleado;
 
 /** \brief Constructor
  *
@@ -14,146 +15,69 @@ typedef struct
  * \return void
  *
  */
-Generica* Generica_nuevo(void);
+eEmpleado* eEmpleado_nuevo(void);
 
-/** \brief Constructor parametrizado
- *
- * \param idStr char*
- * \param nombreStr char*
- * \param enteroStr char*
- * \param flotanteStr char*
- * \return Generica* Retorna 0 si se realizo o 1 en caso de puntero NULL.
- *
- */
-Generica* Generica_nuevoParametrizado(char* idStr,char* nombreStr,char* enteroStr, char* flotanteStr);
+eEmpleado* eEmpleado_nuevoParametrizado(char* idStr, char* nombreStr, char* direccionStr, char* horasTrabajadasStr, char* sueldoStr);
 
 /** \brief Elimina de la memoria.
  *
- * \param this Generica*
+ * \param this eEmpleado*
  * \return void
  *
  */
-void Generica_eliminar(Generica* this);
+void eEmpleado_eliminar(eEmpleado* this);
 
 
 /** \brief Establece el id.
  *
- * \param this Generica*
+ * \param this eEmpleado*
  * \param id int
  * \return int
  *
  */
-int Generica_setId(Generica* this,int id);
+int eEmpleado_setId(eEmpleado* this,int id);
 
  /** \brief Devuelve el id.
  *
- * \param this Generica*
+ * \param this eEmpleado*
  * \param id int*
  * \return int Retorna 0 si se realizo o 1 en caso de puntero NULL.
  *
  */
-int Generica_getId(Generica* this,int* id);
+int eEmpleado_getId(eEmpleado* this,int* id);
 
 /** \brief Establece el nombre.
  *
- * \param this Generica*
+ * \param this eEmpleado*
  * \param nombre char*
  * \return int Retorna 0 si se realizo o 1 en caso de puntero NULL.
  *
  */
-int Generica_setNombre(Generica* this,char* nombre);
+int eEmpleado_setNombre(eEmpleado* this,char* nombre);
 
 /** \brief Devuelve el nombre.
  *
- * \param this Generica*
+ * \param this eEmpleado*
  * \param nombre char*
  * \return int Retorna 0 si se realizo o 1 en caso de puntero NULL.
  *
  */
-int Generica_getNombre(Generica* this,char* nombre);
+int eEmpleado_getNombre(eEmpleado* this,char* nombre);
 
-/** \brief Establece el entero.
- *
- * \param this Generica*
- * \param entero int
- * \return int Retorna 0 si se realizo o 1 en caso de puntero NULL.
- *
- */
-int Generica_setEntero(Generica* this,int entero);
+int eEmpleado_getDireccion(eEmpleado* this, char* direccion);
 
-/** \brief Devuelve el entero.
- *
- * \param this Generica*
- * \param entero int*
- * \return int Retorna 0 si se realizo o 1 en caso de puntero NULL.
- *
- */
-int Generica_getEntero(Generica* this,int* entero);
+int eEmpleado_setDireccion(eEmpleado* this, char* direccion);
 
-/** \brief Establece el flotante.
- *
- * \param this Generica*
- * \param flotante int
- * \return int Retorna 0 si se realizo o 1 en caso de puntero NULL.
- *
- */
-int Generica_setFlotante(Generica* this, float flotante);
+int eEmpleado_setHorasTrabajadas(eEmpleado* this,int horasTrabajadas);
 
-/** \brief Devuelve el flotante.
- *
- * \param this Generica*
- * \param flotante int*
- * \return int Retorna 0 si se realizo o 1 en caso de puntero NULL.
- *
- */
-int Generica_getFlotante(Generica* this,float* flotante);
+int eEmpleado_getHorasTrabajadas(eEmpleado* this,int* horasTrabajadas);
 
-/** \brief Imprime la estrucura en pantalla.
- *
- * \param this Generica*
- * \return int Retorna 0 si se realizo o 1 en caso de puntero NULL.
- *
- */
-int Generica_print(Generica* this);
+int eEmpleado_setSueldo(eEmpleado* this,int sueldo);
 
-/** \brief Compara segun id.
- *
- * \param this void*
- * \param thisDos void*
- * \return int Retorna 1 si el primero es mayor, 0 si son iguales, o -1 si el primero es menor.
- *
- */
-int Generica_compararId(void* this, void* thisDos);
+int eEmpleado_getSueldo(eEmpleado* this,int* sueldo);
 
-/** \brief Compara segun su nombre.
- *
- * \param this void*
- * \param thisDos void*
- * \return int Retorna 1 si el primero es mayor, 0 si son iguales, o -1 si el primero es menor.
- *
- */
-int Generica_compararNombre(void* this, void* thisDos);
+int eEmpleado_print(eEmpleado* this);
 
-/** \brief Compara segun entero.
- *
- * \param this void*
- * \param thisDos void*
- * \return int Retorna 1 si el primero es mayor, 0 si son iguales, o -1 si el primero es menor.
- *
- */
-int Generica_compararEntero(void* this, void* thisDos);
+int eEmpleado_compararNombre(void* this, void* thisDos);
 
-/** \brief Compara segun flotante.
- *
- * \param this void*
- * \param thisDos void*
- * \return int Retorna 1 si el primero es mayor, 0 si son iguales, o -1 si el primero es menor.
- *
- */
-int Generica_compararFlotante(void* this, void* thisDos);
-
-int Generica_filtrarNombre(void* this);
-
-int Generica_filtrarFlotante(void* this);
-
-int Generica_filtrarEntero(void* this);
+int eEmpleado_calcularSueldo(void* this);

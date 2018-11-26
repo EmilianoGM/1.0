@@ -4,37 +4,38 @@
 #include <string.h>
 #include "Estructura.h"
 
-Generica* Generica_nuevo(void)
+eEmpleado* eEmpleado_nuevo(void)
 {
-    Generica* pNuevo = (Generica *)malloc(sizeof(Generica));
+    eEmpleado* pNuevo = (eEmpleado *)malloc(sizeof(eEmpleado));
     return pNuevo;
 }
 
-Generica* Generica_nuevoParametrizado(char* idStr, char* nombreStr, char* enteroStr, char* flotanteStr)
+eEmpleado* eEmpleado_nuevoParametrizado(char* idStr, char* nombreStr, char* direccionStr, char* horasTrabajadasStr, char* sueldoStr)
 {
-    Generica* pGenerica = NULL;
+    eEmpleado* peEmpleado = NULL;
     int id;
-    int entero;
-    float flotante;
-    if(idStr != NULL && nombreStr != NULL && enteroStr != NULL && flotanteStr != NULL)
+    int horasTrabajadas;
+    int sueldo;
+    if(idStr != NULL && nombreStr != NULL && direccionStr!= NULL && horasTrabajadasStr != NULL && sueldoStr != NULL)
     {
-        pGenerica = Generica_nuevo();
-        if(pGenerica != NULL)
+        peEmpleado = eEmpleado_nuevo();
+        if(peEmpleado != NULL)
         {
             id = atoi(idStr);
-            entero = atoi(enteroStr);
-            flotante = atof(flotanteStr);
-            Generica_setId(pGenerica, id);
-            Generica_setNombre(pGenerica, nombreStr);
-            Generica_setEntero(pGenerica, entero);
-            Generica_setFlotante(pGenerica, flotante);
+            horasTrabajadas = atoi(horasTrabajadasStr);
+            sueldo = atoi(sueldoStr);
+            eEmpleado_setId(peEmpleado, id);
+            eEmpleado_setNombre(peEmpleado, nombreStr);
+            eEmpleado_setDireccion(peEmpleado, direccionStr);
+            eEmpleado_setHorasTrabajadas(peEmpleado, horasTrabajadas);
+            eEmpleado_setSueldo(peEmpleado, sueldo);
         }
 
     }
-    return pGenerica;
+    return peEmpleado;
 }
 
-void Generica_eliminar(Generica* this)
+void eEmpleado_eliminar(eEmpleado* this)
 {
     if(this != NULL)
     {
@@ -42,14 +43,7 @@ void Generica_eliminar(Generica* this)
     }
 }
 
-/** \brief  Establece el id.
- *
- * \param this Generica*
- * \param id int
- * \return int Retorna 0 si se realizo o 1 en caso de puntero NULL.
- *
- */
-int Generica_setId(Generica* this,int id)
+int eEmpleado_setId(eEmpleado* this,int id)
 {
     if(this != NULL)
     {
@@ -60,7 +54,7 @@ int Generica_setId(Generica* this,int id)
 }
 
 
-int Generica_getId(Generica* this,int* id)
+int eEmpleado_getId(eEmpleado* this,int* id)
 {
     if(this != NULL && id != NULL)
     {
@@ -71,7 +65,7 @@ int Generica_getId(Generica* this,int* id)
 }
 
 
-int Generica_setNombre(Generica* this,char* nombre)
+int eEmpleado_setNombre(eEmpleado* this,char* nombre)
 {
     if(this != NULL && nombre != NULL)
     {
@@ -82,7 +76,7 @@ int Generica_setNombre(Generica* this,char* nombre)
 }
 
 
-int Generica_getNombre(Generica* this,char* nombre)
+int eEmpleado_getNombre(eEmpleado* this,char* nombre)
 {
     if(this != NULL && nombre != NULL)
     {
@@ -92,201 +86,120 @@ int Generica_getNombre(Generica* this,char* nombre)
     return 1;
 }
 
+int eEmpleado_getDireccion(eEmpleado* this, char* direccion)
+{
+    if(this != NULL && direccion != NULL)
+    {
+        strcpy(direccion, this->direccion);
+        return 0;
+    }
+    return 1;
+}
 
-int Generica_setEntero(Generica* this,int entero)
+int eEmpleado_setDireccion(eEmpleado* this, char* direccion)
+{
+    if(this != NULL && direccion != NULL)
+    {
+        strcpy(this->direccion, direccion);
+        return 0;
+    }
+    return 1;
+}
+
+int eEmpleado_setHorasTrabajadas(eEmpleado* this,int horasTrabajadas)
 {
     if(this != NULL)
     {
-        this->entero = entero;
+        this->horasTrabajadas = horasTrabajadas;
         return 0;
     }
     return 1;
 }
 
-
-int Generica_getEntero(Generica* this,int* entero)
+int eEmpleado_getHorasTrabajadas(eEmpleado* this,int* horasTrabajadas)
 {
-    if(this != NULL && entero != NULL)
+    if(this != NULL && horasTrabajadas != NULL)
     {
-        *entero = this->entero;
+        *horasTrabajadas = this->horasTrabajadas;
         return 0;
     }
     return 1;
 }
 
-
-int Generica_setFlotante(Generica* this, float flotante)
+int eEmpleado_setSueldo(eEmpleado* this,int sueldo)
 {
     if(this != NULL)
     {
-        this->flotante = flotante;
+        this->sueldo = sueldo;
         return 0;
     }
     return 1;
 }
 
-
-int Generica_getFlotante(Generica* this,float* flotante)
+int eEmpleado_getSueldo(eEmpleado* this,int* sueldo)
 {
-    if(this != NULL && flotante != NULL)
+    if(this != NULL && sueldo != NULL)
     {
-        *flotante = this->flotante;
+        *sueldo = this->sueldo;
         return 0;
     }
     return 1;
 }
 
-
-int Generica_print(Generica* this)
+int eEmpleado_print(eEmpleado* this)
 {
     if(this != NULL)
     {
-        printf("%5d | %15s | %10d | %8.2f\n", this->id, this->nombre, this->entero, this->flotante);
+        printf("%5d | %15s | %30s | %20d\n", this->id, this->nombre, this->direccion, this->horasTrabajadas);
         return 0;
     }
     return 1;
 }
 
-
-int Generica_compararId(void* this, void* thisDos)
+int eEmpleado_compararNombre(void* this, void* thisDos)
 {
     int retorno;
-    Generica* pGenerica = NULL;
-    Generica* pGenericaDos = NULL;
+    eEmpleado* peEmpleado = NULL;
+    eEmpleado* peEmpleadoDos = NULL;
     if(this != NULL && thisDos != NULL)
     {
-        pGenerica = (Generica*)this;
-        pGenericaDos = (Generica*)thisDos;
-        if(pGenerica->id > pGenericaDos->id)
-        {
-            retorno = 1;
-        } else if(pGenerica->id < pGenericaDos->id)
-        {
-            retorno = -1;
-        } else
-        {
-            retorno = 0;
-        }
-
+        peEmpleado = (eEmpleado*)this;
+        peEmpleadoDos = (eEmpleado*)thisDos;
+        retorno = strcmp(peEmpleado->nombre, peEmpleadoDos->nombre);
     }
     return retorno;
 }
 
-
-int Generica_compararNombre(void* this, void* thisDos)
+int eEmpleado_calcularSueldo(void* this)
 {
-    int retorno;
-    Generica* pGenerica = NULL;
-    Generica* pGenericaDos = NULL;
-    if(this != NULL && thisDos != NULL)
-    {
-        pGenerica = (Generica*)this;
-        pGenericaDos = (Generica*)thisDos;
-        retorno = strcmp(pGenerica->nombre, pGenericaDos->nombre);
-    }
-    return retorno;
-
-}
-
-
-int Generica_compararEntero(void* this, void* thisDos)
-{
-    int retorno;
-    Generica* pGenerica = NULL;
-    Generica* pGenericaDos = NULL;
-    if(this != NULL && thisDos != NULL)
-    {
-        pGenerica = (Generica*)this;
-        pGenericaDos = (Generica*)thisDos;
-        if(pGenerica->entero > pGenericaDos->entero)
-        {
-            retorno = 1;
-        } else if(pGenerica->entero < pGenericaDos->entero)
-        {
-            retorno = -1;
-        } else
-        {
-            retorno = 0;
-        }
-
-    }
-    return retorno;
-}
-
-int Generica_compararFlotante(void* this, void* thisDos)
-{
-    int retorno;
-    Generica* pGenerica = NULL;
-    Generica* pGenericaDos = NULL;
-    if(this != NULL && thisDos != NULL)
-    {
-        pGenerica = (Generica*)this;
-        pGenericaDos = (Generica*)thisDos;
-        if(pGenerica->flotante > pGenericaDos->flotante)
-        {
-            retorno = 1;
-        } else if(pGenerica->flotante < pGenericaDos->flotante)
-        {
-            retorno = -1;
-        } else
-        {
-            retorno = 0;
-        }
-
-    }
-    return retorno;
-}
-
-int Generica_filtrarNombre(void* this)
-{
+    eEmpleado* peEmpleado = NULL;
     int retorno = -1;
-    Generica* pGenerica = NULL;
+    int horasTrabajadas;
+    int cantidad = 0;
+    int cantidadDos = 0;
+    int cantidadTres = 0;
+    int sueldo;
     if(this != NULL)
     {
-        pGenerica = (Generica *)this;
-        if(pGenerica->nombre[0] == 'C')
+        peEmpleado = (eEmpleado *)this;
+        eEmpleado_getHorasTrabajadas(peEmpleado, &horasTrabajadas);
+        if(horasTrabajadas <= 120)
         {
-            retorno = 1;
-        }else
-        {
-            retorno = 0;
+            cantidad = horasTrabajadas * 180;
         }
-    }
-    return retorno;
-}
-
-int Generica_filtrarFlotante(void* this)
-{
-    int retorno = -1;
-    Generica* pGenerica = NULL;
-    if(this != NULL)
-    {
-        pGenerica = (Generica *)this;
-        if(pGenerica->flotante >= 100)
+        if(horasTrabajadas <= 160)
         {
-            retorno = 1;
-        }else
-        {
-            retorno = 0;
+            cantidad = 120 * 180;
+            cantidadDos = (horasTrabajadas - 120) * 240;
         }
-    }
-    return retorno;
-}
-
-int Generica_filtrarEntero(void* this)
-{
-    int retorno = -1;
-    Generica* pGenerica = NULL;
-    if(this != NULL)
-    {
-        pGenerica = (Generica *)this;
-        if(pGenerica->entero >= 500)
+        if(horasTrabajadas <= 240)
         {
-            retorno = 1;
-        }else
-        {
-            retorno = 0;
+            cantidad = 120 * 180;
+            cantidadDos = 40 * 240;
+            cantidadTres = (horasTrabajadas - 160) * 350;
         }
+        sueldo = cantidad + cantidadDos + cantidadTres;
+        peEmpleado->sueldo = sueldo;
     }
     return retorno;
 }

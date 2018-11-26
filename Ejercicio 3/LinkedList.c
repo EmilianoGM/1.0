@@ -610,12 +610,12 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
  * \return LinkedList* Retorna (NULL) Error si el puntero a la lista o el puntero a funcion son NULL
  *                             (Puntero a la nueva lista) Si OK
  */
-LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
+LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*)(void*), void* parametro)
 {
     LinkedList* cloneArray = NULL;
     Node* pAuxNode = NULL;
     int indice;
-    if(this != NULL && (*pFunc) != NULL)
+    if(this != NULL && (*pFunc) != NULL && parametro != NULL)
     {
         cloneArray = ll_newLinkedList();
         if(cloneArray != NULL)
@@ -627,10 +627,33 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
                 {
                     continue;
                 }
-                if((*pFunc)(pAuxNode->pElement) == 1)
+                if((*pFunc)(pAuxNode->pElement)(parametro) == 1)
                 {
                     ll_add(cloneArray, pAuxNode->pElement);
                 }
+            }
+        }
+    }
+    return cloneArray;
+}
+
+
+LinkedList* ll_map(LinkedList* this, void* (*pFunc)(void*))
+{
+    LinkedList* cloneArray = NULL;
+    Node* pAuxNode = NULL;
+    void* elemento;
+    int indice;
+    if(this != NULL && (*pFunc) != NULL)
+    {
+        cloneArray = ll_newLinkedList();
+        if(cloneArray != NULL)
+        {
+            for(indice = 0; indice < ll_len(this); indice++)
+            {
+                pAuxNode = getNode(this, indice);
+                elemento = (*pFunc)(pAuxNode->pElement);
+                ll_add(cloneArray, elemento);
             }
         }
     }

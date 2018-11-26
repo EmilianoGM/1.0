@@ -610,6 +610,7 @@ int ll_sort(LinkedList* this, int (*pFunc)(void* ,void*), int order)
  * \return LinkedList* Retorna (NULL) Error si el puntero a la lista o el puntero a funcion son NULL
  *                             (Puntero a la nueva lista) Si OK
  */
+
 LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
 {
     LinkedList* cloneArray = NULL;
@@ -635,4 +636,21 @@ LinkedList* ll_filter(LinkedList* this, int (*pFunc)(void*))
         }
     }
     return cloneArray;
+}
+
+int ll_map(LinkedList* this, int (*pFunc)(void*))
+{
+    Node* pAuxNode = NULL;
+    int retorno = -1;
+    int indice;
+    if(this != NULL && (*pFunc) != NULL)
+    {
+        for(indice = 0; indice < ll_len(this); indice++)
+        {
+            pAuxNode = getNode(this, indice);
+            (*pFunc)(pAuxNode->pElement);
+        }
+        retorno = 0;
+    }
+    return retorno;
 }

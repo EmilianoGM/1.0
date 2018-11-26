@@ -55,3 +55,51 @@
 
 1543200309 c:\users\liliana\desktop\tecnicatura\ejercicio 5\controlador.h
 
+1543232840 source:c:\users\alumno\desktop\hoy\ejercicio 5\biblioteca.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+
+1543232840 c:\users\alumno\desktop\hoy\ejercicio 5\biblioteca.h
+
+1543240590 source:c:\users\alumno\desktop\hoy\ejercicio 5\controlador.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+	<conio.h>
+	"Biblioteca.h"
+	"Estructura.h"
+	"LinkedList.h"
+	"Controlador.h"
+
+1543238967 c:\users\alumno\desktop\hoy\ejercicio 5\estructura.h
+
+1543242010 c:\users\alumno\desktop\hoy\ejercicio 5\linkedlist.h
+
+1543240590 c:\users\alumno\desktop\hoy\ejercicio 5\controlador.h
+
+1543242010 source:c:\users\alumno\desktop\hoy\ejercicio 5\estructura.c
+	<stdlib.h>
+	<stdio.h>
+	<ctype.h>
+	<string.h>
+	"Estructura.h"
+
+1543242010 source:c:\users\alumno\desktop\hoy\ejercicio 5\linkedlist.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"LinkedList.h"
+
+1543242089 source:c:\users\alumno\desktop\hoy\ejercicio 5\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Biblioteca.h"
+	"Estructura.h"
+	"LinkedList.h"
+	"Controlador.h"
+
