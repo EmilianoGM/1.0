@@ -1,0 +1,13 @@
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\obj\Debug\MainCorreo.csprojAssemblyReference.cache
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\obj\Debug\MainCorreo.FrmPpal.resources
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\obj\Debug\MainCorreo.Properties.Resources.resources
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\obj\Debug\MainCorreo.csproj.GenerateResource.cache
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\obj\Debug\MainCorreo.csproj.CoreCompileInputs.cache
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\bin\Debug\MainCorreo.exe.config
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\bin\Debug\MainCorreo.exe
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\bin\Debug\MainCorreo.pdb
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\bin\Debug\Entidades.dll
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\bin\Debug\Entidades.pdb
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\obj\Debug\MainCorreo.csproj.CopyComplete
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\obj\Debug\MainCorreo.exe
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\MainCorreo\obj\Debug\MainCorreo.pdb

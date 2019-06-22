@@ -1,0 +1,6 @@
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\Entidades\bin\Debug\Entidades.dll
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\Entidades\bin\Debug\Entidades.pdb
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\Entidades\obj\Debug\Entidades.csprojAssemblyReference.cache
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\Entidades\obj\Debug\Entidades.csproj.CoreCompileInputs.cache
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\Entidades\obj\Debug\Entidades.dll
+C:\Users\mcmrb\Desktop\Solucion TP4\Medina.Emiliano.2A.TP4\Entidades\obj\Debug\Entidades.pdb
