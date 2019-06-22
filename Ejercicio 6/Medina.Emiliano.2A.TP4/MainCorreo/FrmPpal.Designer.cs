@@ -1,4 +1,4 @@
-﻿namespace MainCorreo
+namespace MainCorreo
 {
     partial class FrmPpal
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblEstadoEntregado = new System.Windows.Forms.Label();
             this.lblEstadoEnViaje = new System.Windows.Forms.Label();
@@ -43,8 +44,11 @@
             this.btnMostrarTodos = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.rtbMostrar = new System.Windows.Forms.RichTextBox();
+            this.cmsListas = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mostrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.cmsListas.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -99,6 +103,7 @@
             // 
             // lstEstadoEntregado
             // 
+            this.lstEstadoEntregado.ContextMenuStrip = this.cmsListas;
             this.lstEstadoEntregado.FormattingEnabled = true;
             this.lstEstadoEntregado.Location = new System.Drawing.Point(517, 46);
             this.lstEstadoEntregado.Name = "lstEstadoEntregado";
@@ -190,6 +195,20 @@
             this.rtbMostrar.TabIndex = 2;
             this.rtbMostrar.Text = "";
             // 
+            // cmsListas
+            // 
+            this.cmsListas.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mostrarToolStripMenuItem});
+            this.cmsListas.Name = "contextMenuStrip1";
+            this.cmsListas.Size = new System.Drawing.Size(116, 26);
+            // 
+            // mostrarToolStripMenuItem
+            // 
+            this.mostrarToolStripMenuItem.Name = "mostrarToolStripMenuItem";
+            this.mostrarToolStripMenuItem.Size = new System.Drawing.Size(115, 22);
+            this.mostrarToolStripMenuItem.Text = "Mostrar";
+            this.mostrarToolStripMenuItem.Click += new System.EventHandler(this.mostrarToolStripMenuItem_Click);
+            // 
             // FrmPpal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,6 +224,7 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.cmsListas.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -226,6 +246,8 @@
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblTrackingID;
         private System.Windows.Forms.RichTextBox rtbMostrar;
-    }
+    private System.Windows.Forms.ContextMenuStrip cmsListas;
+    private System.Windows.Forms.ToolStripMenuItem mostrarToolStripMenuItem;
+  }
 }
 

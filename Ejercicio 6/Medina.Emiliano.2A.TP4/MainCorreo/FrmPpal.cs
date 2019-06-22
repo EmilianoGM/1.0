@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -44,6 +44,8 @@ namespace MainCorreo
                 } catch (TrackingIdRepetidoException exception)
                 {
                     MessageBox.Show(exception.Message);
+                } catch(Exception ex) {
+                    MessageBox.Show(ex.Message);
                 }
                 this.ActualizarEstados();
             }
@@ -56,7 +58,7 @@ namespace MainCorreo
 
         private void btnMostrarTodos_Click(object sender, EventArgs e)
         {
-            this.MostrarInformacion(this.correo.MostrarDatos());
+            this.MostrarInformacion<List<Paquete>>((IMostrar<List<Paquete>>)correo);
         }
 
         private void paq_InformaEstado(object sender, EventArgs e)
@@ -101,22 +103,39 @@ namespace MainCorreo
         }
 
         //BORRAR
+        /*
         private void MostrarInformacion(string valores)
         {
             if(!Object.Equals(valores, null))
             {
                 this.rtbMostrar.Text = valores;
+                if (!valores.Guardar("salida.txt"))
+                {
+                    MessageBox.Show("Error archivo de texto");
+                }
             }
         }
-
-        /*
+        */
+        
         private void MostrarInformacion<T>(IMostrar<T> elemento)
         {
             if(!Object.Equals(elemento, null))
             {
-
+                string datos = elemento.MostrarDatos(elemento);
+                if(!String.IsNullOrEmpty(datos))
+                {
+                    this.rtbMostrar.Text = datos;
+                    if (!datos.Guardar("salida.txt"))
+                    {
+                        MessageBox.Show("Error archivo de texto");
+                    }
+                }         
             }
         }
-        */
-    }
+
+        private void mostrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.MostrarInformacion<Paquete>((IMostrar<Paquete>)lstEstadoEntregado.SelectedItem);
+        }
+  }
 }

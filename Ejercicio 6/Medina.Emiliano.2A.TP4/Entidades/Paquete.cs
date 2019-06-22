@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Paquete /*: IMostrar<Paquete>*/
+    public class Paquete : IMostrar<Paquete>
     {
         public delegate void DelegadoEstado(object sender, EventArgs args);
         public enum EEstado
@@ -65,19 +65,22 @@ namespace Entidades
         }
 
         //BORRAR
+        /*
         public string MostrarDatos() 
         {
             return string.Format("{0} para {1}", this.trackingID, this.direccionEntrega);
         }
-        /*
+        */
+
+        
         public string MostrarDatos(IMostrar<Paquete> elemento) //  CAMBIAR
         {
-            return string.Format("{0} para {1}", this.trackingID, this.estado);
+            return string.Format("{0} para {1}", ((Paquete)elemento).trackingID, ((Paquete)elemento).direccionEntrega);
         }
-        */
+        
         public override string ToString()
         {
-            return this.MostrarDatos();
+            return this.MostrarDatos(this);
         }
 
         public void MockCicloDeVida()
@@ -88,8 +91,9 @@ namespace Entidades
                 int numeroDeEstado = (int)this.estado;
                 this.estado = (EEstado)(numeroDeEstado + 1);
                 this.InformaEstado(this.estado, new EventArgs());
+                PaqueteDao.Insertar(this);
                 //Guardar datos paquete en base de datos
-            }
+      }
         }
 
         public static bool operator ==(Paquete p1, Paquete p2)

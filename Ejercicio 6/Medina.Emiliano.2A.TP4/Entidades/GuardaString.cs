@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,7 +13,9 @@ namespace Entidades
         {
             try
             {
-                StreamWriter streamWriter = new StreamWriter(archivo, true);
+                string path = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+                path += "\\" + archivo;
+                StreamWriter streamWriter = new StreamWriter(path, true);
                 streamWriter.WriteLine(texto);
                 streamWriter.Close();
                 return true;

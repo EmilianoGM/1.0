@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using System.Threading;
 
 namespace Entidades
 {
-    public class Correo /*: IMostrar<List<Paquete>>*/
+    public class Correo : IMostrar<List<Paquete>>
     {
         private List<Thread> mockPaquetes;
         private List<Paquete> paquetes;
@@ -31,6 +31,7 @@ namespace Entidades
         }
 
         //BORRAR
+        /*
         public string MostrarDatos()
         {
             string retorno = "";
@@ -39,13 +40,18 @@ namespace Entidades
                 retorno += string.Format("{0} para {1} ({2})\n", paquete.TrackingID, paquete.DireccionEntrega , paquete.Estado);
             }
             return retorno;
-        }
-        /*
+        }*/
+        
         public string MostrarDatos(IMostrar<List<Paquete>> elemento)
         {
-            throw new NotImplementedException();
+            string retorno = "";
+            foreach(Paquete paquete in ((List<Paquete>)elemento))
+            {
+                retorno += string.Format("{0} para {1} ({2})\n", paquete.TrackingID, paquete.DireccionEntrega , paquete.Estado);
+            }
+            return retorno;
         }
-        */
+
         public void FinEntregas()
         {
             foreach(Thread thread in this.mockPaquetes)
